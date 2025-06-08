@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+</head>
+<body style="background-color: #0d0d0d; font-family: Arial, sans-serif; color: #fff; padding: 2rem;">
+
+  <form
+    action="https://formspree.io/f/xrbkenjj"
+    method="POST"
+    style="max-width: 500px; margin: 0 auto; background: #1a1a1a; padding: 2rem; border-radius: 12px; box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);"
+  >
+    <h2 style="text-align: center; margin-bottom: 1.5rem;">Contact Us</h2>
+    
+    <label for="email" style="display: block; margin-bottom: 0.5rem;">Your Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="you@example.com"
+      required
+      style="width: 100%; padding: 0.75rem; margin-bottom: 1.5rem; border: none; border-radius: 8px; background: #333; color: #fff;"
+    />
+
+    <label for="message" style="display: block; margin-bottom: 0.5rem;">Your Message</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      placeholder="Write your message here..."
+      required
+      style="width: 100%; padding: 0.75rem; margin-bottom: 1.5rem; border: none; border-radius: 8px; background: #333; color: #fff;"
+    ></textarea>
+
+    <button
+      type="submit"
+      style="width: 100%; padding: 0.75rem; background: linear-gradient(135deg, #00c6ff, #0072ff); border: none; border-radius: 8px; color: white; font-size: 1rem; cursor: pointer; transition: 0.3s;"
+      onmouseover="this.style.opacity='0.9'"
+      onmouseout="this.style.opacity='1'"
+    >
+      Send Message
+    </button>
+  </form>
+
+</body>
+</html>
