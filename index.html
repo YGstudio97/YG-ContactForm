@@ -4,45 +4,185 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Form</title>
-</head>
-<body style="background-color: #0d0d0d; font-family: Arial, sans-serif; color: #fff; padding: 2rem;">
-
-  <form
-    action="https://formspree.io/f/xrbkenjj"
-    method="POST"
-    style="max-width: 500px; margin: 0 auto; background: #1a1a1a; padding: 2rem; border-radius: 12px; box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);"
-  >
-    <h2 style="text-align: center; margin-bottom: 1.5rem;">Contact Us</h2>
+  <style>
+    :root {
+      --primary: #0072ff;
+      --primary-dark: #0058cc;
+      --bg: #0d0d0d;
+      --card-bg: #1a1a1a;
+      --input-bg: #2a2a2a;
+      --text: #ffffff;
+      --text-muted: #aaaaaa;
+    }
     
-    <label for="email" style="display: block; margin-bottom: 0.5rem;">Your Email</label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="you@example.com"
-      required
-      style="width: 100%; padding: 0.75rem; margin-bottom: 1.5rem; border: none; border-radius: 8px; background: #333; color: #fff;"
-    />
-
-    <label for="message" style="display: block; margin-bottom: 0.5rem;">Your Message</label>
-    <textarea
-      id="message"
-      name="message"
-      rows="5"
-      placeholder="Write your message here..."
-      required
-      style="width: 100%; padding: 0.75rem; margin-bottom: 1.5rem; border: none; border-radius: 8px; background: #333; color: #fff;"
-    ></textarea>
-
-    <button
-      type="submit"
-      style="width: 100%; padding: 0.75rem; background: linear-gradient(135deg, #00c6ff, #0072ff); border: none; border-radius: 8px; color: white; font-size: 1rem; cursor: pointer; transition: 0.3s;"
-      onmouseover="this.style.opacity='0.9'"
-      onmouseout="this.style.opacity='1'"
-    >
-      Send Message
-    </button>
-  </form>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    
+    .form-container {
+      max-width: 500px;
+      width: 100%;
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .form-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+    }
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: white;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 0.9rem;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background: var(--input-bg);
+      color: var(--text);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 114, 255, 0.2);
+    }
+    
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+    }
+    
+    .submit-btn:hover {
+      background: linear-gradient(135deg, #00c6ff, var(--primary-dark));
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 114, 255, 0.3);
+    }
+    
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+    
+    .hosted-by {
+      text-align: center;
+      margin-top: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    .hosted-by a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .hosted-by a:hover {
+      color: var(--primary);
+    }
+    
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .form-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <form action="https://formspree.io/f/xrbkenjj" method="POST">
+      <h2>Get In Touch</h2>
+      
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+        />
+      </div>
+      
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Write your message here..."
+          required
+        ></textarea>
+      </div>
+      
+      <button type="submit" class="submit-btn">
+        Send Message
+      </button>
+    </form>
+  </div>
+  
+  <div class="hosted-by">
+    Hosted by <a href="#" target="_blank">YGstudio97</a>
+  </div>
 
 </body>
 </html>
